@@ -119,7 +119,9 @@ public class Hike {
         this.hikeName = hikeName;
         this.quantity = quantity;
         hikes.put(hikeName,this);
-        hikeDays.add(new HikeDay());
+        for (int i=0;i<duration;i++) {
+            hikeDays.add(new HikeDay());
+        }
     }
 
     public Hike(String hikeName, int quantity, ArrayList<HikeDay> hikeDays) {
@@ -166,40 +168,3 @@ public class Hike {
             this.meals = meals;
         }
     }
-
-    /*public class ShippingChart {
-        private static ShippingChart chart;
-
-
-        public ShippingChart getShippingChart() {
-            if (chart == null)
-                chart = new ShippingChart(generateShippingChart());
-            return chart;
-        }
-
-        public HashMap<Product,Double> generateShippingChart() {
-            HashMap<Product,Double> chart = new HashMap<Product, Double>();
-            for (HikeDay hikeDay:hikeDays
-            ) {
-                for (Meal meal:hikeDay.getMeals()
-                ) {
-                    for (HashMap.Entry<Product, Double> pair : meal.getMealProducts().entrySet()
-                    ) {
-                        Product product = pair.getKey();
-                        double weight = pair.getValue();
-                        if (chart.keySet().contains(product)) {
-                            chart.put(product,chart.get(product)+weight*Hike.this.getQuantity());
-                        } else {
-                            chart.put(product,weight*Hike.this.getQuantity());
-                        }
-                    }
-                }
-            }
-            return chart;
-        }
-
-        private ShippingChart(HashMap<Product, Double> shippingChart) {
-            this.shippingChart = shippingChart;
-        }
-    }*/
-}
