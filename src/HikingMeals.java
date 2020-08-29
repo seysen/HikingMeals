@@ -7,39 +7,40 @@ public class HikingMeals {
 
     }
     public static void main (String[] args) {
-        Hike pvd = new Hike("ПВД",6);
-        System.out.println("Создан поход; " + pvd + " длительностью " + pvd.getDuration() + " дней на " + pvd.getQuantity() + " человек" );
+        Hike pvd = new Hike("Weekend hike",6);
+        System.out.println("Created hike: " + pvd + " duration " + pvd.getDuration() + " days for " + pvd.getQuantity() + " persons" );
         pvd.setDuration(2);
-        System.out.println("Изменен поход; " + pvd + " на длительность " + pvd.getDuration() + " дней");
-        pvd.getHikeDay(0).addMeal(Meal.getMeal("Плов"));
-        System.out.println("Блюда на день 1: " + pvd.getHikeDay(0).getMeals());
-        pvd.getHikeDay(1).addMeal(Meal.getMeal("Каша"));
-        pvd.getHikeDay(1).addMeal(Meal.getMeal("Бутерброд"));
-        System.out.println("Блюда на день 2: " + pvd.getHikeDay(1).getMeals());
-        System.out.println("Калорийность питания на день 1: " + pvd.getHikeDay(0).getHikeDayEnergy());
-        System.out.println("Калорийность питания на день 2: " + pvd.getHikeDay(1).getHikeDayEnergy());
+        System.out.println("Changed hike: " + pvd + " on duration " + pvd.getDuration() + " days");
         System.out.println();
-        System.out.println("Создаем список закупок на поход");
+        pvd.getHikeDay(0).addMeal(Meal.getMeal("pilaf"));
+        System.out.println("Meals on day 1: " + pvd.getHikeDay(0).getMeals());
+        pvd.getHikeDay(1).addMeal(Meal.getMeal("porridge"));
+        pvd.getHikeDay(1).addMeal(Meal.getMeal("sandwich"));
+        System.out.println("meals on day 2: " + pvd.getHikeDay(1).getMeals());
+        System.out.println("Energy of meals on day 1: " + pvd.getHikeDay(0).getHikeDayEnergy());
+        System.out.println("Energy of meals on day 2: " + pvd.getHikeDay(1).getHikeDayEnergy());
+        System.out.println();
+        System.out.println("Generated shipping chart for hike");
         System.out.println();
         pvd.generateShippingChart();
         for (HashMap.Entry<Product, Double> pair : pvd.getShippingChart().entrySet()
              ) {
             Product product = pair.getKey();
             double weight = pair.getValue();
-            System.out.println("Продукт: " + product + " " + weight + "грамм" );
+            System.out.println("Product: " + product + " " + weight + " grams" );
         }
         System.out.println();
-        System.out.println("Изменяем количество человек на 8");
         pvd.setQuantity(8);
+        System.out.println("Changed number of participants to " + pvd.getQuantity());
         System.out.println();
-        System.out.println("Создаем список закупок на поход");
+        System.out.println("Generated shipping chart for hike");
         System.out.println();
         pvd.generateShippingChart();
         for (HashMap.Entry<Product, Double> pair : pvd.getShippingChart().entrySet()
         ) {
             Product product = pair.getKey();
             double weight = pair.getValue();
-            System.out.println("Продукт: " + product + " " + weight + "грамм" );
+            System.out.println("Product: " + product + " " + weight + " grams" );
         }
     }
 }

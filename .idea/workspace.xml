@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3fa807c4-82d9-43e1-9a84-95e0d0c6f58d" name="Default Changelist" comment="" />
+    <list default="true" id="3fa807c4-82d9-43e1-9a84-95e0d0c6f58d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/HikeDay.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/MealProduct.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HikingMealsV01.iml" beforeDir="false" afterPath="$PROJECT_DIR$/HikingMealsV01.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Hike.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Hike.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/HikingMeals.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HikingMeals.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Meal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Meal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Product.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,6 +24,9 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1bQoUFouYACZ7uf0ka002hwjdHZ" />
   <component name="ProjectViewState">
     <option name="autoscrollFromSource" value="true" />
@@ -23,10 +36,16 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
   </component>
   <component name="RunManager">
     <configuration name="HikingMeals" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -68,49 +87,33 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="320" y="115" key="#Project_Structure" timestamp="1588573803690">
+    <state width="1398" height="446" key="GridCell.Tab.0.bottom" timestamp="1598694190200">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="320" y="115" key="#Project_Structure/0.0.1440.900@0.0.1440.900" timestamp="1588573803690" />
-    <state x="533" y="158" key="#com.intellij.ide.util.MemberChooser" timestamp="1588675672077">
+    <state width="1398" height="446" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1598694190200" />
+    <state width="1398" height="446" key="GridCell.Tab.0.center" timestamp="1598694190199">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="533" y="158" key="#com.intellij.ide.util.MemberChooser/0.0.1440.900@0.0.1440.900" timestamp="1588675672077" />
-    <state width="1398" height="701" key="GridCell.Tab.0.bottom" timestamp="1588678781534">
+    <state width="1398" height="446" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1598694190199" />
+    <state width="1398" height="446" key="GridCell.Tab.0.left" timestamp="1598694190198">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="701" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1588678781534" />
-    <state width="1398" height="701" key="GridCell.Tab.0.center" timestamp="1588678781531">
+    <state width="1398" height="446" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1598694190198" />
+    <state width="1398" height="446" key="GridCell.Tab.0.right" timestamp="1598694190199">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="701" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1588678781531" />
-    <state width="1398" height="701" key="GridCell.Tab.0.left" timestamp="1588678781529">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state width="1398" height="446" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1598694190199" />
+    <state x="458" y="59" key="SettingsEditor" timestamp="1598690310651">
+      <screen x="0" y="23" width="1440" height="795" />
     </state>
-    <state width="1398" height="701" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1588678781529" />
-    <state width="1398" height="701" key="GridCell.Tab.0.right" timestamp="1588678781532">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state x="458" y="59" key="SettingsEditor/0.23.1440.795@0.23.1440.795" timestamp="1598690310651" />
+    <state x="776" y="324" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1598692241909">
+      <screen x="0" y="23" width="1440" height="795" />
     </state>
-    <state width="1398" height="701" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1588678781532" />
-    <state width="1398" height="701" key="GridCell.Tab.1.bottom" timestamp="1588678781049">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state x="776" y="324" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.23.1440.795@0.23.1440.795" timestamp="1598692241909" />
+    <state x="787" y="181" width="524" height="482" key="extract.method.dialog" timestamp="1598690495254">
+      <screen x="0" y="23" width="1440" height="795" />
     </state>
-    <state width="1398" height="701" key="GridCell.Tab.1.bottom/0.0.1440.900@0.0.1440.900" timestamp="1588678781049" />
-    <state width="1398" height="701" key="GridCell.Tab.1.center" timestamp="1588678781047">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state width="1398" height="701" key="GridCell.Tab.1.center/0.0.1440.900@0.0.1440.900" timestamp="1588678781047" />
-    <state width="1398" height="701" key="GridCell.Tab.1.left" timestamp="1588678781045">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state width="1398" height="701" key="GridCell.Tab.1.left/0.0.1440.900@0.0.1440.900" timestamp="1588678781045" />
-    <state width="1398" height="701" key="GridCell.Tab.1.right" timestamp="1588678781048">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state width="1398" height="701" key="GridCell.Tab.1.right/0.0.1440.900@0.0.1440.900" timestamp="1588678781048" />
-    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1588576678845">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1588576678845" />
+    <state x="787" y="181" width="524" height="482" key="extract.method.dialog/0.23.1440.795@0.23.1440.795" timestamp="1598690495254" />
   </component>
 </project>

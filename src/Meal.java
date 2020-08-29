@@ -1,51 +1,80 @@
+import org.jetbrains.annotations.NotNull;
+
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 
 public class Meal {
-    private static HashMap<String,Meal> meals = new HashMap<String, Meal>();
-    private HashMap<Product, Double> mealProducts = new HashMap<Product, Double>();
+    private static ArrayList<Meal> meals = new ArrayList<>();
+
+    private ArrayList<MealProduct> mealProducts = new ArrayList<>();
     private String mealName;
     private double energy;
     private double protein;
     private double fat;
     private double carbohydrate;
+    private double weight;
 
     static {
-        Meal pilaf = new Meal("Плов");
-        pilaf.addMealProduct("Рис",100);
-        pilaf.addMealProduct("Лук",30);
-        pilaf.addMealProduct("Морковь",30);
-        pilaf.addMealProduct("Масло",10);
-        pilaf.addMealProduct("Чеснок",2.5);
-        pilaf.addMealProduct("Майонез",10);
-        pilaf.addMealProduct("Кетчуп", 10);
-        Meal porridge = new Meal("Каша");
-        porridge.addMealProduct("Овсянка",70);
-        porridge.addMealProduct("Молоко", 25);
-        porridge.addMealProduct("Джем",10);
-        Meal sandwich = new Meal("Бутерброд");
-        sandwich.addMealProduct("Хлеб",50);
-        sandwich.addMealProduct("Колбаса",80);
+        Meal pilaf = new Meal("pilaf");
+        pilaf.addMealProduct(new MealProduct(Product.getProduct("rice"),100));
+        pilaf.addMealProduct(new MealProduct(Product.getProduct("onion"),30));
+        pilaf.addMealProduct(new MealProduct(Product.getProduct("carrot"),30));
+        pilaf.addMealProduct(new MealProduct(Product.getProduct("oil"),10));
+        pilaf.addMealProduct(new MealProduct(Product.getProduct("garlic"),2.5));
+        pilaf.addMealProduct(new MealProduct(Product.getProduct("mayonnaise"),10));
+        pilaf.addMealProduct(new MealProduct(Product.getProduct("ketchup"), 10));
+        meals.add(pilaf);
+        Meal porridge = new Meal("porridge");
+        porridge.addMealProduct(new MealProduct(Product.getProduct("cereals"),70));
+        porridge.addMealProduct(new MealProduct(Product.getProduct("milk"), 25));
+        porridge.addMealProduct(new MealProduct(Product.getProduct("jam"),10));
+        meals.add(porridge);
+        Meal sandwich = new Meal("sandwich");
+        sandwich.addMealProduct(new MealProduct(Product.getProduct("bread"),50));
+        sandwich.addMealProduct(new MealProduct(Product.getProduct("sausage"),80));
+        meals.add(sandwich);
     }
 
     //Methods
 
-    public static HashMap<String, Meal> getMeals() {
+    public static ArrayList<Meal> getMeals() {
         return meals;
     }
 
-    public static void setMeals(HashMap<String, Meal> meals) {
+    public static void setMeals(ArrayList<Meal> meals) {
         Meal.meals = meals;
     }
 
-    public HashMap<Product, Double> getMealProducts() {
+    public ArrayList<MealProduct> getMealProducts() {
         return mealProducts;
     }
 
     public static Meal getMeal(String mealName) {
-        return meals.get(mealName);
+        Meal result = null;
+        for (Meal meal: meals) {
+            if (meal.getMealName().equals(mealName)){
+                result=meal;
+            }
+        }
+        return result;
     }
 
-    public void setMealProducts(HashMap<Product, Double> mealProducts) {
+    public static void removeProduct(Product product) {
+        for (Meal meal: meals
+        ) {
+            Iterator<MealProduct> iterator = meal.getMealProducts().iterator();
+            while (iterator.hasNext()) {
+                MealProduct mealProduct = iterator.next();
+                if (mealProduct.getProduct().equals(product)) {
+                    iterator.remove();
+                    meal.update();
+                }
+            }
+        }
+    }
+
+    public void setMealProducts(ArrayList<MealProduct> mealProducts) {
         this.mealProducts = mealProducts;
     }
 
@@ -89,33 +118,38 @@ public class Meal {
         this.carbohydrate = carbohydrate;
     }
 
-    public void addMealProduct (Product mealProduct, double weight) {
-        mealProducts.put(mealProduct,weight);
-        this.updateEnergy();
+    public void updateMealProducts() {
+        for (MealProduct mealProduct: mealProducts) {
+            Product product = Product.getProduct(mealProduct.getProductID());
+            mealProduct.setProduct(product);
+        }
+        update();
     }
 
-    public void addMealProduct (String productName, double weight) {
-        mealProducts.put(Product.getProduct(productName),weight);
-        this.updateEnergy();
+    public void addMealProduct(@NotNull MealProduct product) {
+        if (product.getProduct()!=null) {
+            this.mealProducts.add(product);
+            this.update();
+        }
     }
 
-    public void removeMealProduct (Product product) {
+    public void removeMealProduct (MealProduct product) {
         mealProducts.remove(product);
-        this.updateEnergy();
+        this.update();
     }
 
-    private void updateEnergy() {
+    private void update() {
         this.energy = 0;
         this.protein = 0;
         this.fat = 0;
         this.carbohydrate = 0;
-        for (HashMap.Entry<Product, Double> pair : this.mealProducts.entrySet()) {
-            Product product = pair.getKey();
-            double weight = pair.getValue();
-            this.energy += product.getEnergy() * weight / 100;
-            this.protein += product.getProtein() * weight / 100;
-            this.fat += product.getFat() * weight / 100;
-            this.carbohydrate += product.getCarbohydrate() * weight / 100;
+        this.weight = 0;
+        for (MealProduct product: mealProducts) {
+            this.energy += product.getEnergy();
+            this.protein += product.getProtein();
+            this.fat += product.getFat();
+            this.carbohydrate += product.getCarbohydrate();
+            this.weight += product.getWeight();
         }
     }
 
@@ -126,37 +160,13 @@ public class Meal {
 
     //Constructors
 
-    public Meal(String mealName) {
-        this.mealName = mealName;
-        this.energy = 0;
-        this.protein = 0;
-        this.fat = 0;
-        this.carbohydrate = 0;
-        meals.put(mealName, this);
-    }
-
-    public Meal(String mealName, double energy) {
-        this.mealName = mealName;
-        this.energy = energy;
-        this.protein = 0;
-        this.fat = 0;
-        this.carbohydrate = 0;
-        meals.put(mealName, this);
-    }
-
-    public Meal(String mealName, double energy, double protein, double fat, double carbohydrate) {
-        this.mealName = mealName;
-        this.energy = energy;
-        this.protein = protein;
-        this.fat = fat;
-        this.carbohydrate = carbohydrate;
-        meals.put(mealName, this);
-    }
-
-    public Meal(String mealName, HashMap<Product, Double> mealProducts) {
+    public Meal(String mealName, ArrayList<MealProduct> mealProducts) {
         this.mealName = mealName;
         this.mealProducts = mealProducts;
-        this.updateEnergy();
-        meals.put(mealName,this);
+        this.update();
+    }
+
+    public Meal(String mealName) {
+        this(mealName,new ArrayList<MealProduct>());
     }
 }
