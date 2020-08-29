@@ -1,2 +1,2 @@
 # HikingMeals
-App to make a menu of meals to your hikes
+Java library for apps that can make a menu of meals to your hikes
