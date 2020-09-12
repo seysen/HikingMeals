@@ -1,5 +1,6 @@
+package core;
+
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class Product {
     private static ArrayList<Product> products = new ArrayList<>();

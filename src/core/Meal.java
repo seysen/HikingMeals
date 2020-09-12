@@ -1,13 +1,14 @@
+package core;
+
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Iterator;
 
 public class Meal {
     private static ArrayList<Meal> meals = new ArrayList<>();
 
-    private ArrayList<MealProduct> mealProducts = new ArrayList<>();
+    private ArrayList<MealProduct> mealProducts;
     private String mealName;
     private double energy;
     private double protein;
@@ -145,6 +146,7 @@ public class Meal {
         this.carbohydrate = 0;
         this.weight = 0;
         for (MealProduct product: mealProducts) {
+            product.update();
             this.energy += product.getEnergy();
             this.protein += product.getProtein();
             this.fat += product.getFat();
@@ -167,6 +169,6 @@ public class Meal {
     }
 
     public Meal(String mealName) {
-        this(mealName,new ArrayList<MealProduct>());
+        this(mealName,new ArrayList<>());
     }
 }

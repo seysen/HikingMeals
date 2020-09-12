@@ -1,3 +1,5 @@
+package core;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -6,8 +8,8 @@ public class Hike {
     private static ArrayList<Hike> hikes = new ArrayList<>();
     private String hikeName;
     private int quantity;
-    private ArrayList<HikeDay> hikeDays = new ArrayList<HikeDay>();
-    private HashMap<Product, Double> shippingChart = new HashMap<Product, Double>();
+    private ArrayList<HikeDay> hikeDays = new ArrayList<>();
+    private ArrayList<MealProduct> shoppingList = new ArrayList<>();
     //methods
 
     static {
@@ -93,29 +95,34 @@ public class Hike {
         hikeDays.remove(index - 1);
     }
 
-    public HashMap<Product, Double> getShippingChart() {
-        return shippingChart;
+    public ArrayList<MealProduct> getShippingChart() {
+        return shoppingList;
     }
 
-    public void generateShippingChart() {
-        HashMap<Product, Double> chart = new HashMap<Product, Double>();
-        for (HikeDay hikeDay : hikeDays
+    public void generateShoppingList() {
+        this.shoppingList.clear();
+        for (HikeDay hikeDay: hikeDays
         ) {
-            for (Meal meal : hikeDay.getMeals()
+            ArrayList<Meal> meals = hikeDay.getMeals();
+            for (Meal meal:meals
             ) {
-                for (MealProduct mProduct: meal.getMealProducts()
+                ArrayList<MealProduct> mealProducts = meal.getMealProducts();
+                for (MealProduct mProduct: mealProducts
                 ) {
-                    Product product = mProduct.getProduct();
-                    double weight = mProduct.getWeight();
-                    if (chart.keySet().contains(product)) {
-                        chart.put(product, chart.get(product) + weight * Hike.this.getQuantity());
+                    if (this.shoppingList.contains(mProduct)) {
+                        for (MealProduct product:this.shoppingList
+                        ) {
+                            if (product.equals(mProduct)) {
+                                double weight = product.getWeight();
+                                product.setWeight(weight+mProduct.getWeight()*quantity);
+                            }
+                        }
                     } else {
-                        chart.put(product, weight * Hike.this.getQuantity());
+                        this.shoppingList.add(new MealProduct(mProduct.getProduct(),mProduct.getWeight()*quantity));
                     }
                 }
             }
         }
-        shippingChart = chart;
     }
 
     @Override

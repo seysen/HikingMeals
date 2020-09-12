@@ -1,11 +1,12 @@
-import java.util.ArrayList;
+import core.Hike;
+import core.Meal;
+import core.MealProduct;
+import core.Product;
+
 import java.util.HashMap;
 
 public class HikingMeals {
-
-    static {//generate default meals
-
-    }
+    
     public static void main (String[] args) {
         Hike pvd = new Hike("Weekend hike",6);
         System.out.println("Created hike: " + pvd + " duration " + pvd.getDuration() + " days for " + pvd.getQuantity() + " persons" );
@@ -22,12 +23,11 @@ public class HikingMeals {
         System.out.println();
         System.out.println("Generated shipping chart for hike");
         System.out.println();
-        pvd.generateShippingChart();
-        for (HashMap.Entry<Product, Double> pair : pvd.getShippingChart().entrySet()
+        pvd.generateShoppingList();
+        for (MealProduct product : pvd.getShippingChart()
              ) {
-            Product product = pair.getKey();
-            double weight = pair.getValue();
-            System.out.println("Product: " + product + " " + weight + " grams" );
+            double weight = product.getWeight();
+            System.out.println("core.Product: " + product + " " + weight + " grams" );
         }
         System.out.println();
         pvd.setQuantity(8);
@@ -35,12 +35,11 @@ public class HikingMeals {
         System.out.println();
         System.out.println("Generated shipping chart for hike");
         System.out.println();
-        pvd.generateShippingChart();
-        for (HashMap.Entry<Product, Double> pair : pvd.getShippingChart().entrySet()
+        pvd.generateShoppingList();
+        for (MealProduct product : pvd.getShippingChart()
         ) {
-            Product product = pair.getKey();
-            double weight = pair.getValue();
-            System.out.println("Product: " + product + " " + weight + " grams" );
+            double weight = product.getWeight();
+            System.out.println("core.Product: " + product + " " + weight + " grams" );
         }
     }
 }

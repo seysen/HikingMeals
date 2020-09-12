@@ -1,5 +1,7 @@
+package core;
+
 public class MealProduct {
-    private final static String TAG = "MealProduct";
+    private final static String TAG = "core.MealProduct";
     private Product product;//name of the product
     private String productName;
     private double energy;//energy per weight
@@ -47,7 +49,7 @@ public class MealProduct {
         this.weight = weight;
     }
 
-    private void update() {
+    public void update() {
         this.energy = product.getEnergy()*weight/100;
         this.protein = product.getProtein()*weight/100;
         this.fat = product.getFat()*weight/100;
@@ -62,5 +64,19 @@ public class MealProduct {
 
     public int getProductID() {
         return this.product.getProductID();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof MealProduct) {
+            return this.getProduct().getProductID() == ((MealProduct) obj).getProduct().getProductID();
+        } else {
+            return false;
+        }
+    }
+
+    @Override
+    public String toString() {
+        return this.productName;
     }
 }
